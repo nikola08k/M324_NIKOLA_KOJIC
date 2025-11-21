@@ -1,0 +1,26 @@
+name: PR Auto Comment
+
+on:
+  pull_request:
+    types:
+      - opened
+
+jobs:
+  comment:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add welcome comment
+        uses: actions/github-script@v7
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const issue_number = context.payload.pull_request.number;
+            const owner = context.repo.owner;
+            const repo = context.repo.repo;
+
+            await github.rest.issues.createComment({
+              owner,
+              repo,
+              issue_number,
+              body: "👋 Danke für deinen Pull Request! Die CI-Pipeline prüft jetzt Linting, Formatierung und Tests."
+            });
