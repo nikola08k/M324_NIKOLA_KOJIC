@@ -1,0 +1,31 @@
+name: M324 CI Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  nikola-lint-format-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+
+      - name: Install dependencies (npm ci)
+        run: npm ci
+
+      - name: Run ESLint (Lint)
+        run: npm run lint
+
+      - name: Check formatting with Prettier
+        run: npm run format-check
+
+      - name: Run tests with Mocha
+        run: npm test
