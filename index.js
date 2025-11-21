@@ -1,6 +1,7 @@
-// index.js
-export const sum = (a, b) => {
-  return a + b
-}
+import chalk from 'chalk'
 
-console.log('Hallo aus GitHub Actions Test')
+
+
+
+
+console.log(   chalk.green("zu viele spaces") )
