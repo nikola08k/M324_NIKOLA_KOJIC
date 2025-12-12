@@ -1,5 +1,9 @@
 ports:
   - "3308:3306"
+
+volumes:
+  - ./mysql_data:/var/lib/mysql
+
 environment:
   MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
   MYSQL_DATABASE: ${MYSQL_DATABASE}
