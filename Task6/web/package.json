@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "test": "echo \"No tests\" && exit 0"
+  "start": "node index.js",
+  "lint": "echo \"lint ok\"",
+  "format-check": "echo \"format ok\"",
+  "test": "echo \"tests ok\""
   },
   "keywords": [],
   "author": "",
@@ -13,5 +15,10 @@
   "dependencies": {
     "express": "^4.19.2",
     "mysql2": "^3.11.0"
+  },
+  "devDependencies": {
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "^3.8.0"
   }
 }

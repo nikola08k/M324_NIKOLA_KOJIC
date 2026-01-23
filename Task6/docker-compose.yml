@@ -21,7 +21,7 @@ services:
     build: ./web
     container_name: web-demo
     ports:
-      - "3000:3000"
+      - "3001:3000"
     environment:
       DB_HOST: mysql
       DB_PORT: 3306
